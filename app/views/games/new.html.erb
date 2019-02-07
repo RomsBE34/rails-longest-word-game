@@ -1,0 +1,30 @@
+
+
+
+<header>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</header>
+
+<body>
+
+  <div class="form-container">
+    <h1>New game</h1>
+    <div class="letter-container">
+      <% @letters.each do |letter| %>
+        <div class="letter"><%= "#{letter}" %> </div>
+      <% end %>
+    </div>
+    <p> What is le longest word you can find ?</p>
+      <form class="form-inline" action="score">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :letters, @letters %>
+        <div class="form-group ">
+          <input type="text" name="word" class="form-control">
+        </div>
+        <input type="submit" value="Play" class="btn btn-primary">
+      </form>
+  </div>
+</body>
+
+
